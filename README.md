@@ -1,16 +1,16 @@
 # HOW TO RUN
-  install node and npm here https://nodejs.org/en/download or use whatever package manager you would like
-  you can confirm everything is installed correctly by running `node -v` and `npm -v`
+  Install node and npm here https://nodejs.org/en/download or use whatever package manager you would like
+  You can confirm everything is installed correctly by running `node -v` and `npm -v`
 
-  clone the project by running the command `git clone git@github.com:brucks24/fetchSRE.git` or `git clone https://github.com/brucks24/fetchSRE.git`
+  Clone the project by running the command `git clone git@github.com:brucks24/fetchSRE.git` or `git clone https://github.com/brucks24/fetchSRE.git`
 
   `cd fetchSRE`
 
-  run the command `npm i` to install necessary packages
+  Run the command `npm i` to install necessary packages
 
-  to run the script your command should be `node main.js <path to file>`
+  To run the script the command is `node main.js <path to file>`
 
-  for example, if you would like to run the script with the endpoints.yml file in the directory you would run `node main.js ./endpoints.yml`
+  For example, if you would like to run the script with the endpoints.yml file in the directory you would run `node main.js ./endpoints.yml`
 
 
   The output will be printed to the CLI and you will see the result of each individual request as well as the availability percentage for each domain which is calculated over the life of the program.
