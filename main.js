@@ -5,6 +5,7 @@ import axios from 'axios';
 const domainStats = new Map();
 
 async function makeApiCall(url, method = 'GET', body = null, headers = {}) {
+  const startTime = new Date();
   try {
     const options = {
       method: method.toUpperCase(),
@@ -19,6 +20,7 @@ async function makeApiCall(url, method = 'GET', body = null, headers = {}) {
         setTimeout(() => reject(new Error('Request timeout')), 500)
       ),
     ]);
+    const endTime = new Date();
 
     const result = {
       domain: getDomain(url),
@@ -26,17 +28,20 @@ async function makeApiCall(url, method = 'GET', body = null, headers = {}) {
       method,
       success: response.status >= 200 && response.status < 300,
       status: response.status,
+      responseTimeInMS: endTime - startTime,
     };
 
     console.log('Request Result:', result);
     return result;
   } catch (error) {
+    const endTime = new Date();
     const result = {
       domain: getDomain(url),
       url,
       method,
       success: false,
-      status: error.response ? error.response.status : 'Request Error',
+      status: error.response ? error.response.status : 'Timeout Error',
+      responseTimeInMS: endTime - startTime,
     };
 
     console.log('Request Result:', result);
@@ -81,7 +86,7 @@ async function monitorEndpoints(endpoints) {
   console.log('Domain Availability:', domainResults);
 }
 
-function main() {
+async function main() {
   try {
     const filePath = process.argv[2];
 
@@ -95,12 +100,12 @@ function main() {
     const yamlData = fs.readFileSync(filePath, 'utf8');
     const endpoints = yaml.parse(yamlData);
 
-    setInterval(() => {
-      monitorEndpoints(endpoints);
+    setInterval(async () => {
+      await monitorEndpoints(endpoints);
     }, 15000); // 15 seconds
   } catch (error) {
     console.error('Error:', error.message);
   }
 }
 
-main();
+await main();
