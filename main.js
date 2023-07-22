@@ -1,8 +1,8 @@
-const axios = require('axios');
-const yaml = require('yaml');
-const fs = require('fs');
+import fs from 'fs';
+import yaml from 'yaml';
+import axios from 'axios';
 
-const domainStats = new Map(); // To store statistics for each domain
+const domainStats = new Map();
 
 async function makeApiCall(url, method = 'GET', body = null, headers = {}) {
   try {
