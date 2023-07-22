@@ -15,7 +15,7 @@ HOW TO RUN:
   for example, if you would like to run the script with the endpoints.yml file in the directory you would run `node main.js ./endpoints.yml`
 
 
-  In the output you will see the result of each individual request as well as the availability percentage for each domain which is calculated over the life of the program.
+  The output will be printed to the CLI and you will see the result of each individual request as well as the availability percentage for each domain which is calculated over the life of the program.
 
   
 
