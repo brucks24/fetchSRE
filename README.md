@@ -6,9 +6,11 @@ HOW TO RUN:
 
   clone the project by running the command `git clone git@github.com:brucks24/fetchSRE.git` or `git clone https://github.com/brucks24/fetchSRE.git`
 
+  `cd fetchSRE`
+
   run the command `npm i` to install necessary packages
 
-  to run the script you command should be `node main.js <path to file>`
+  to run the script your command should be `node main.js <path to file>`
 
   for example, if you would like to run the script with the endpoints.yml file in the directory you would run `node main.js ./endpoints.yml`
 
