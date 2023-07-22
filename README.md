@@ -1,6 +1,4 @@
-# fetchSRE
-
-## HOW TO RUN
+# HOW TO RUN
   install node and npm here https://nodejs.org/en/download or use whatever package manager you would like
   you can confirm everything is installed correctly by running `node -v` and `npm -v`
 
